@@ -23,11 +23,11 @@
 
         <div class="text-xl mb-2">
             <a href="https://mhnazeri.github.io" class="text-blue-600 hover:text-blue-800 hover:underline">Mohammad Nazeri</a><sup>1</sup>,
-            <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Alex Card</a><sup>1</sup>,
-            <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Samira Huber</a><sup>2</sup>,
+            Alex Card<sup>1</sup>,
+            <a href="https://www.vcai-lab.org/team-huber" class="text-blue-600 hover:text-blue-800 hover:underline">Samira Huber</a><sup>2</sup>,
             <a href="https://anujpokhrel.github.io/" class="text-blue-600 hover:text-blue-800 hover:underline">Anuj Pokhrel</a><sup>1</sup>,
-            <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Yujun Wang</a><sup>4</sup>,
-            <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline">Ruben Hammele</a><sup>2</sup>,
+            <a href="https://www.vcai-lab.org/team-wang" class="text-blue-600 hover:text-blue-800 hover:underline">Yujun Wang</a><sup>4</sup>,
+            <a href="https://www.vcai-lab.org/team-hammele" class="text-blue-600 hover:text-blue-800 hover:underline">Ruben Hammele</a><sup>2</sup>,
             <a href="https://daeunsong.github.io/" class="text-blue-600 hover:text-blue-800 hover:underline">Daeun Song</a><sup>3</sup>,
             <a href="https://www.vcai-lab.org/team-pirk" class="text-blue-600 hover:text-blue-800 hover:underline">Sören Pirk</a><sup>2</sup>,
             <a href="https://people.cs.gmu.edu/~xiao/" class="text-blue-600 hover:text-blue-800 hover:underline">Xuesu Xiao</a><sup>1</sup>
@@ -89,7 +89,7 @@
     <section class="max-w-4xl mx-auto px-6 mb-16">
         <h3 class="text-2xl font-bold mb-4 border-b pb-2">Speed vs. Safety</h3>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            Below is the planning performance on a Clearpath Jackal UGV evaluated in clear and occluded environments (Depth=3, Samples=18, Len=12).
+            Below is the planning performance evaluated in clear, occluded, and narrow corridor turn environments.
         </p>
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden text-left">
@@ -98,9 +98,9 @@
                         <th class="py-4 px-6 font-bold uppercase text-sm border-b">Model</th>
                         <th class="py-4 px-6 font-bold uppercase text-sm border-b">Search Space</th>
                         <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">Plan Time &downarrow;</th>
-                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">SR (Clear) &uparrow;</th>
-                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">SR (Occluded) &uparrow;</th>
-                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">Corner Turn &uparrow;</th>
+                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">Clear (SR%) &uparrow;</th>
+                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">Occluded (SR%) &uparrow;</th>
+                        <th class="py-4 px-6 font-bold uppercase text-sm border-b text-center">Corner Turn (SR%) &uparrow;</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
@@ -108,25 +108,33 @@
                         <td class="py-4 px-6 font-semibold text-red-600">NWM</td>
                         <td class="py-4 px-6">Continuous (CEM)</td>
                         <td class="py-4 px-6 text-center text-red-600">> 500.0s</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
+                        <td class="py-4 px-6 text-center">0</td>
+                        <td class="py-4 px-6 text-center">0</td>
+                        <td class="py-4 px-6 text-center">0</td>
                     </tr>
                     <tr class="hover:bg-gray-50 border-b">
                         <td class="py-4 px-6 font-semibold text-orange-500">VertiFormer</td>
                         <td class="py-4 px-6">Continuous (MPPI)</td>
                         <td class="py-4 px-6 text-center font-bold text-green-600">0.7s</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
-                        <td class="py-4 px-6 text-center">0/10</td>
+                        <td class="py-4 px-6 text-center">40</td>
+                        <td class="py-4 px-6 text-center">0</td>
+                        <td class="py-4 px-6 text-center">0</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 border-b">
+                        <td class="py-4 px-6 font-semibold text-orange-500">Hydra-NoVQ</td>
+                        <td class="py-4 px-6">Continuous (MPPI)</td>
+                        <td class="py-4 px-6 text-center text-black-600">1.2s</td>
+                        <td class="py-4 px-6 text-center">20</td>
+                        <td class="py-4 px-6 text-center">10</td>
+                        <td class="py-4 px-6 text-center">10</td>
                     </tr>
                     <tr class="hover:bg-gray-50 bg-[#E8EFF6]">
                         <td class="py-4 px-6 font-bold text-[#1A4B84]">HYDRA (Ours)</td>
                         <td class="py-4 px-6 font-bold text-[#1A4B84]">Discrete (DLP)</td>
                         <td class="py-4 px-6 text-center font-semibold">0.9s</td>
-                        <td class="py-4 px-6 text-center font-bold text-green-600">10/10</td>
-                        <td class="py-4 px-6 text-center font-bold text-green-600">8/10</td>
-                        <td class="py-4 px-6 text-center font-bold text-green-600">8/10</td>
+                        <td class="py-4 px-6 text-center font-bold text-green-600">100</td>
+                        <td class="py-4 px-6 text-center font-bold text-green-600">80</td>
+                        <td class="py-4 px-6 text-center font-bold text-green-600">80</td>
                     </tr>
                 </tbody>
             </table>
@@ -266,7 +274,7 @@
 
     <!-- Physical Deployment Video Collage -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
-        <h3 class="text-2xl font-bold mb-6 border-b pb-2">Deployment Video Collage</h3>
+        <h3 class="text-2xl font-bold mb-6 border-b pb-2">Deployment Video</h3>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
             Real-world deployments across complex environments. <span style="color: #1A4B84;">HYDRA</span> handles obstacles and narrow corridors.
         </p>
@@ -324,7 +332,7 @@
     <section class="max-w-5xl mx-auto px-6 mb-16">
         <h3 class="text-2xl font-bold mb-6 border-b pb-2">Image Generation</h3>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            Multiple image generation with one forward pass. Top row is the ground truth, bottom is the generated image.
+            Multiple image generation through time with one forward pass. Top row is the ground truth, bottom is the generated image.
         </p>
         <!-- Bento Box Grid: 4 columns on desktop, fixed auto row height -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
@@ -382,86 +390,15 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-
-    <!-- Image Gallery (Bento Box Style) -->
-    <section class="max-w-5xl mx-auto px-6 mb-16">
-        <h3 class="text-2xl font-bold mb-6 border-b pb-2">Single Image Generation (Qualitative Results)</h3>
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            1-step single image generation. The top row is the ground truth; the bottom is the generated image.
-        </p>
-        <!-- Bento Box Grid: 4 columns on desktop, fixed auto row height -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            <!-- Large Feature Image -->
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200 col-span-2 row-span-2">
-                <img src="./images/img1.png" alt="Qualitative result 1" class="w-full h-full object-cover">
-            </div>
-            <!-- Supporting Images -->
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img2.png" alt="Qualitative result 2" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img3.png" alt="Qualitative result 3" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img4.png" alt="Qualitative result 4" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img5.png" alt="Qualitative result 5" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </section>
-
-||||||| parent of 289581e (Updated the website with paper link and new videos.)
-
-    <!-- Image Gallery (Bento Box Style) -->
-    <section class="max-w-5xl mx-auto px-6 mb-16">
-        <h3 class="text-2xl font-bold mb-6 border-b pb-2">Single Image Generation (Qualitative Results)</h3>
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            1-step single image generation. Top row is the ground turth, bottom is the generated image.
-        </p>
-        <!-- Bento Box Grid: 4 columns on desktop, fixed auto row height -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            <!-- Large Feature Image -->
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200 col-span-2 row-span-2">
-                <img src="./images/img1.png" alt="Qualitative result 1" class="w-full h-full object-cover">
-            </div>
-            <!-- Supporting Images -->
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img2.png" alt="Qualitative result 2" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img3.png" alt="Qualitative result 3" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img4.png" alt="Qualitative result 4" class="w-full h-full object-cover">
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="./images/img5.png" alt="Qualitative result 5" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </section>
-
-=======
->>>>>>> 289581e (Updated the website with paper link and new videos.)
+   
     <!-- BibTeX Section -->
     <section class="max-w-4xl mx-auto px-6 mb-16">
         <h3 class="text-2xl font-bold mb-4 border-b pb-2">Citation</h3>
         <div class="bg-gray-100 p-6 rounded-lg overflow-x-auto text-sm font-mono text-gray-700 border border-gray-300 shadow-inner">
-<<<<<<< HEAD
-<pre><code>@misc{nazeri2026hydra,
-  title={Hydra: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution},
-  author={Nazeri, Mohammad and Card, Alex and Huber, Samira and Pokhrel, Anuj and Wang, Yujun and Hammele, Ruben and Song, Daeun and Pirk, Sören and Xiao, Xuesu},
-||||||| parent of 289581e (Updated the website with paper link and new videos.)
-<pre><code>@inproceedings{nazeri2026hydra,
-  title={<span style="color: #1A4B84;">HYDRA</span>: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution},
-  author={Nazeri, Mohammad and Card, Alex and Huber, Samira and Pokhrel, Anuj and Wang, Yujun and Hammele, Ruben and Song, Daeun and Pirk, Sören and Xiao, Xuesu},
-=======
 <pre><code>@article{nazeri2026hydra,
   title={Hydra: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution},
   author={Nazeri, Mohammad and Card, Alexandyr and Huber, Samira and Pokhrel, Anuj and Wang, Yujun and Hammele, Ruben and Song, Daeun and Pirk, S{\"o}ren and Xiao, Xuesu},
   journal={arXiv preprint arXiv:2608.28995},
->>>>>>> 289581e (Updated the website with paper link and new videos.)
   year={2026}
 }</code></pre>
         </div>
